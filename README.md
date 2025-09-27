@@ -1,6 +1,6 @@
 # Calculator
 
-🔗 **live Demo**: [click here to visit the website](https://sanchitumrao.github.io/Calculato/)  
+🔗 **live Demo**: [click here to visit the website](https://sanchitumrao.github.io/Calculator/)  
 
 <img src="Screenshot 2025-09-27 101508.png " width=30%><img src="Screenshot 2025-09-27 101525.png " width=30%> <img src="Screenshot 2025-09-27 101540.png " width=30%>
 
