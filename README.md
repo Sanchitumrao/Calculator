@@ -13,7 +13,7 @@ Clean and minimal interface for quick calculations.
 
 **🔄 Currency Converter:**
 Converts between multiple currencies.
-Uses up-to-date exchange rates (can be connected to an API).
+Uses up-to-date exchange rates (connected to an API).
 
 **⚖ BMI Calculator:**
 Input height and weight to calculate BMI.
