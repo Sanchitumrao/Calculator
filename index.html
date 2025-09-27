@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="calculator" id="calc">
+            <input id="display" disabled>
+            <div class="extrabtns">
+                <button type="button" id="currency"class="extraop"><a href="curr.html">💱</a></button>
+                <button type="button" id="Age" class="extraop"><a href="BMI.html">BMI</a></button>
+            </div>
+            <div class="btn" id="basicbtns">
+                <button type="button" class="del">AC</button>
+                <button type="button" class="del">⌫</button>
+                <button type="button" class="op">x²</button>
+                <button type="button" class="op">/</button>
+                <button type="button" class="numbers">7</button>
+                <button type="button" class="numbers">8</button>
+                <button type="button" class="numbers">9</button>
+                <button type="button" class="op">*</button>
+                <button type="button" class="numbers">4</button>
+                <button type="button" class="numbers">5</button>
+                <button type="button" class="numbers">6</button>
+                <button type="button" class="op">-</button>
+                <button type="button" class="numbers">1</button>
+                <button type="button" class="numbers">2</button>
+                <button type="button" class="numbers">3</button>
+                <button type="button" class="op">+</button>
+                <button type="button" class="numbers">%</button>
+                <button type="button" class="numbers">0</button>
+                <button type="button" class="numbers">.</button>
+                <button type="button" class="equal">=</button>
+                
+            </div>
+
+        </div>
+    </main>
+    <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const value = button.textContent;
+            // if (value === 'AC') {
+            //     display.value = '';
+            // } 
+            // else if (value === '⌫') {
+            //     display.value = display.value.slice(0, -1);
+            // } 
+            // else if (value === '=') {
+            //     try {
+            //         display.value = eval(display.value);
+            //     } catch {
+            //         display.value = 'Error';
+            //     }
+            // }
+            // else if (value === '%') {
+            //     display.value = parseFloat(display.value) / 100;
+            // }
+            // else if (value === 'x²') {
+            //     display.value = Math.pow(parseFloat(display.value), 2);
+            // } 
+            // else {
+            //     display.value += value;
+            // }
+            switch(value) {
+                case 'AC':
+                    display.value = '';
+                    break;
+                case '⌫':
+                    display.value = display.value.slice(0, -1);
+                    break;
+                case '=':
+                    try {
+                        display.value = eval(display.value);
+                    } catch {
+                        display.value = 'Error';
+                    }
+                    break;
+                case '%':
+                    try {
+                        if(display.value === '') throw 'Error';
+                        display.value = parseFloat(display.value) / 100;
+                    } catch {
+                        display.value = 'Error';
+                    }
+                    break;
+                case 'x²':
+                    display.value = Math.pow(parseFloat(display.value), 2);
+                    break;
+                default:
+                    display.value += value;
+            }
+        });
+    });
+
+
+        
+    </script>
+    <!-- <script src="script.js"></script>  -->
+</body>
+</html>

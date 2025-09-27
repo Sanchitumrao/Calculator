@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh; */
+            background-color: #bde6f6;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.2);
+            margin: 15px;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            /* min-height: 45vh; */
+            /* min-width: 40vh; */
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 5);
+        }
+
+        .convertor {
+            margin-top: 15px;
+        }
+
+        #input {
+            margin-top: 10px;
+            width: 90%;
+            border: 1px solid black;
+            border-radius: 12px;
+            font-size: 20px;
+            height: 30px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .form {
+            margin: 2rem 0 1rem 0;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        form select,
+        button {
+            width: 100%;
+            border: none;
+            outline: none;
+            border-radius: 0.75rem;
+        }
+
+        .dropdowns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .dropdowns i {
+            font-size: 2rem;
+            margin-top: 1.5rem;
+            margin-left: 10px;
+        }
+
+        .select img {
+            max-width: 2.5rem;
+        }
+
+        .select {
+            display: flex;
+            width: 6rem;
+            border: none;
+        }
+
+        .select select {
+            font-size: 15px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        #msg {
+            margin: 2rem 0 2rem 0;
+            background-color: #f4e4ba;
+            color: #000;
+            font-weight: bold;
+            width: 90%;
+            height: auto;
+            border-radius: 12px;
+            font-size: 1.15rem; 
+            padding: 8px;
+            text-align: center;
+
+        }
+
+        #btn {
+            height: 2rem;
+            width: 40%;
+            margin-left: 30%;
+            margin-right: 30%;
+            /* background-color: #af4d99; */
+            background: linear-gradient(to right, #000000 0%, #434343 51%, #000000 100%);
+            color: #fff;
+            font-size: 1.20rem;
+            cursor: pointer;
+            box-shadow: 0px 12px 18px #000;
+            transition:0.3s;
+        }
+        #btn:hover{
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-radius: 13px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Convert Currency</h1>
+        <form class="convertor">
+            <div>
+                <label for="input">Enter Amount:</label>
+                <input id="input" placeholder="Amount" type="number" value="100">
+                <div class="dropdowns">
+                    <div class="from">
+                        <label for="from">From</label> 
+                        <div class="select">
+                            <img id="flag1" src="https://flagsapi.com/US/flat/64.png">
+                            <select name="from" id="from"></select>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <div class="to">
+                        <label for="to">To</label>
+                        <div class="select">
+                            <img id="flag2" src="https://flagsapi.com/IN/flat/64.png">
+
+                            <select name="to" id="to"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="msg"></div>
+            <button id="btn">Convert</button>
+        </form>
+    </div>
+    <script src="codes.js"></script>
+    <script src="curr.js"></script>
+</body>
+
+</html>

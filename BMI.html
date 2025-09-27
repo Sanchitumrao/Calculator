@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(90deg,#c2edda, #5be3e8,#5cbdb9 );
+        }
+        .BMIContainer {
+            margin: auto;
+            margin-top: 70px;
+            padding: 15px;
+            width: 330px;
+            height: auto;
+            background: rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 3);
+            border-radius: 20px;
+            display: block;
+
+        }
+
+        .details label {
+            margin: 5px;
+            font-size: 20px;
+        }
+
+        .inputfield {
+            padding: 5px;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-bottom: 10px;
+            width: 80%;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            color: #000;
+            background: rgba(0, 0, 0, 0.1);
+
+        }
+
+        .gender {
+            margin-top: 5px;
+        }
+        .result {
+            margin: 7px;
+            padding: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            display: none;
+        }
+
+        #btn {
+            margin: 15px 100px;
+            padding: 10px;
+            border-radius: 10px;
+            width: auto;
+            font-size: 17px;
+            border: none;
+            color: #fff;
+            background: linear-gradient(to right, #000000 0%, #434343 51%, #000000 100%);
+            cursor: pointer;
+            box-shadow: 0px 10px 15px #000;
+            transition: 0.2s;
+        }
+
+        #btn:hover {
+            width: 100px;
+            border-radius: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="BMIContainer">
+        <h1>Calculate BMI</h1>
+        <form class="details">
+            <div>
+                <label name="age">Enter your age:</label>
+                <input for="age" id=age class="inputfield" type="number" placeholder="Enter Age">
+            </div>
+            <div class="gender">
+                <label name="gender">Gender:</label>
+                <label for="Male">
+                    <input name="gender" for="Male" type="radio">Male</label>
+                <label for="Female">
+                    <input name="gender" for="Female" type="radio">Female</label>
+
+                <label for="Other">
+                    <input name="gender" for="Female" type="radio">Other</label>
+            </div>
+            <div>
+                <label name="height">Height (in cm):</label>
+                <input for="height" id=height name="height" class="inputfield" type="number" placeholder="Enter Height">
+            </div>
+            <div>
+                <label name="weight">Weight (in kg):</label>
+                <input for="weight" id="weight" name="weight" class="inputfield" type="number"
+                    placeholder="Enter Weight">
+            </div>
+            <div class="result"></div>
+            <div>
+                <button id="btn">Calculate</button>
+            </div>
+            <p><a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight">Know more about BMI</a></p>
+        </form>
+    </div>
+    <script>
+        let btn = document.getElementById("btn");
+        let result = document.querySelector(".result");
+        btn.addEventListener("click", function (event) {
+            event.preventDefault();
+            result.style.display = "block";
+
+            let height = parseFloat(document.querySelector("#height").value);
+            let weight = parseFloat(document.getElementById("weight").value);
+            let age = parseInt(document.getElementById("age").value);
+        
+            if (height > 0 && weight > 0) {
+                let bmi = (weight / ((height * height) / 10000)).toFixed(2);
+                // let result = document.querySelector(".result");
+                if (bmi < 18.5) {
+                    result.style.color="red";
+                    result.textContent = `Your BMI is ${bmi} which means you are underweight. This can lead to malnutrition, osteoporosis, and weakened immune system.`;
+                } else if (bmi >= 18.5 && bmi < 24.9) {
+                    result.style.color="green";
+                    result.textContent = `Your BMI is ${bmi} which means you have a normal weight.`;
+                } else if (bmi >= 25 && bmi < 29.9) {
+                    result.style.color="orange";
+                    result.textContent = `Your BMI is ${bmi} which means you are overweight. This can lead to high blood pressure, diabetes, and heart disease.`;
+                } else {
+                    result.style.color="red";
+                    result.textContent= `Your BMI is ${bmi} which means you are obese. This can lead to serious health issues such as cardiovascular disease, and certain types of cancer.`;
+                }
+            }
+            else {
+                result.textContent="Please enter valid height and weight values."
+            }
+        });
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
